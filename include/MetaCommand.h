@@ -1,0 +1,12 @@
+#ifndef METACOMMAND_H
+#define METACOMMAND_H
+
+enum class MetaCommandResult
+{
+	META_COMMAND_SUCCESS,
+	META_COMMAND_UNRECOGNIZED_COMMAND
+};
+
+
+
+#endif

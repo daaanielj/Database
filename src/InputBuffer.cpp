@@ -1,13 +1,6 @@
+#include "InputBuffer.h"
 #include <iostream>
-#include <string>
 #include <cstdlib>
-
-struct InputBuffer
-{
-	std::string buffer;
-	size_t buffer_length;
-	ssize_t input_length;
-};
 
 InputBuffer* new_input_buffer()
 {
@@ -44,27 +37,8 @@ void read_input(InputBuffer* input_buffer)
 	input_buffer->buffer_length = input_buffer->buffer.capacity();
 
 }
+
 void close_input_buffer(InputBuffer* input_buffer)
 {
 	delete input_buffer;
-}
-
-int main(int argc, char* argv[])
-{
-	InputBuffer* input_buffer = new_input_buffer();
-	while (true)
-	{
-		print_prompt();
-		read_input(input_buffer);
-
-		if (input_buffer->buffer == ".exit")
-		{
-			close_input_buffer(input_buffer);
-			exit(EXIT_SUCCESS);
-		}
-		else
-		{
-			std::cout << "Unrecognized command '" << input_buffer->buffer << "'." << std::endl;
-		}
-	}
 }
